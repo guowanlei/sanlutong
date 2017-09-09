@@ -1,0 +1,93 @@
+<include file="tpl/web/header.html"/>
+<link rel="stylesheet" type="text/css" href="{{__TEMPLATE__}}/css/list_article.css"/>
+
+
+<img src="{{__TEMPLATE__}}/images/20160722165047_65119.jpg" style="display: block;margin: 0 auto;"/>
+
+<!--大区域-->
+<div class="main">
+    <!--左侧-->
+    <div class="left" style="width: 960px;">
+        <!--面包屑导航-->
+        <p class="position">
+            <span>当前位置：</span>
+            <a href="{{root_url()}}">首页</a>
+            »
+            <a href="#">搜索</a>
+        </p>
+        <ul style="width: 958px;">
+            <if value="$articleData">
+                <foreach from="$articleData" value="$v">
+                    <li>
+                        <a href="{{u('home.entry.content',['aid'=>$v['aid']])}}" class="title">{{$v['title']}}</a>
+                        <span class="time">[ 2017-07-25 ]</span>
+                        <p class="desc">{{$v['description']}}</p>
+                    </li>
+                </foreach>
+                <else/>
+                <li>&nbsp;&nbsp;&nbsp;没有匹配到相应文章，请重新搜索！！</li>
+            </if>
+
+        </ul>
+        <!--分页-->
+        <style>
+            div.pagelist nav ul.pagination li {
+                width: 60px;
+                float: left;
+                text-align: center;
+            }
+        </style>
+        <div class="pagelist">
+            <!--{{$arcModel->links()}}-->
+        </div>
+        <!--分页结束-->
+    </div>
+    <!--左侧结束-->
+
+
+    <!--右侧-->
+    <div class="right">
+        <h3>课程安排</h3>
+        <dl>
+            <dt><a href="">前端阶段</a></dt>
+            <dd><a href="">HTML超文本标记语言</a></dd>
+            <dd><a href="">CSS层叠样式表</a></dd>
+            <dd><a href="">JavaScript动态效果</a></dd>
+            <dd><a href="">jQuery框架</a></dd>
+            <dd><a href="">HTML5、CSS3</a></dd>
+            <dd><a href="">混合APP开发</a></dd>
+            <dd><a href="">Angular框架</a></dd>
+            <dd><a href="">Vue.js框架</a></dd>
+            <dd><a href="">微信小程序</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="">PHP阶段</a></dt>
+            <dd><a href="">PHP初级</a></dd>
+            <dd><a href="">PHP中级</a></dd>
+            <dd><a href="">PHP高级</a></dd>
+            <dd><a href="">MySQL数据库</a></dd>
+            <dd><a href="">独立框架开发</a></dd>
+            <dd><a href="">面向对象</a></dd>
+            <dd><a href="">linux数据库</a></dd>
+            <dd><a href="">微信开发</a></dd>
+            <dd><a href="">微信三网通项目</a></dd>
+            <dd><a href="">CMS开发</a></dd>
+            <dd><a href="">ThinkPHP框架实战</a></dd>
+            <dd><a href="">Laravel框架实战</a></dd>
+            <dd><a href="">项目性能优化</a></dd>
+            <dd><a href="">自选大项目独立开发</a></dd>
+        </dl>
+    </div>
+    <!--右侧结束-->
+</div>
+<!--大区域结束-->
+
+<!--底部-->
+<div id="footer">
+    <p>北京后盾计算机技术培训有限责任公司</p>
+    <p>京ICP备12048441号-3</p>
+</div>
+<!--底部结束-->
+
+</body>
+</html>

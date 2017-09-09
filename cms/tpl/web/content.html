@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>文章内容页</title>
+    <link rel="stylesheet" type="text/css" href="{{__TEMPLATE__}}/css/page.css"/>
+    <script src="{{__TEMPLATE__}}/js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--头部-->
+<div id="head">
+    <img src="{{__TEMPLATE__}}/images/logo.jpg" class="logo"/>
+    <ul class="ad">
+        <li>顶尖PHP培训机构</li>
+        <li style="color: #ee782f;">IT技能培训首选后盾网！</li>
+    </ul>
+    <div class="right">
+        <span>www.houdunwang.com</span>
+        <p>400-682-3231</p>
+    </div>
+</div>
+<!--头部结束-->
+<!--导航条-->
+<content aid="houdunwang\request\Request::get('aid')">
+<div id="menu">
+    <div class="center">
+
+        <a href="{{web_url()}}">后盾首页</a>
+
+
+        <category  pid="0">
+
+
+            <if value="$article['categorycid'] == $v['cid']">
+                <a href="{{$v['url']}}" class="cur">{{$v['catname']}}</a>
+                <else/>
+                <a href="{{$v['url']}}">{{$v['catname']}}</a>
+            </if>
+
+        </category>
+
+
+
+
+
+      <!---->
+        <!--<a href="">PHP</a>-->
+        <!--<a href="">MYSQL</a>-->
+        <!--<a href="">HDPHP</a>-->
+        <!--<a href="">HDCMS</a>-->
+    </div>
+</div>
+<!--导航条结束-->
+
+<!--搜索区域-->
+<div id="search">
+    <span>热门关键词：</span>
+
+    <foreach   from="$hotkeyword"  value="$v">
+        <a href="">{{$v['keyword']}}</a>
+    </foreach>
+
+    <form action="" method="get">
+        <input type="text" placeholder="请输入搜索关键词"  name="keyword" class="keyword"/>
+
+
+        <input type="hidden" name="m" value="sousuo">
+        <input type="hidden" name="action" value="controller/user/sousuo">
+        <input type="submit" value="" class="sub"/>
+    </form>
+</div>
+<!--搜索区域结束-->
+
+<img src="{{__TEMPLATE__}}/images/20160722165047_65119.jpg" style="display: block;margin: 0 auto;"/>
+
+<!--大区域-->
+<div class="main">
+    <!--左侧-->
+    <div class="left">
+        <!--面包屑导航-->
+        <p class="position">
+            <span>当前位置：</span>
+            <a href="/">首页</a>
+            »
+            <a href="javascript:;">{{$arccategory['catname']}}</a>
+            »
+            <a href="javascript:;">{{$article['title']}}</a>
+
+        </p>
+
+        <h1>{{$article['title']}}</h1>
+        <p class="info">文章出处：{{$article['source']}}&nbsp;&nbsp;&nbsp;&nbsp;点击量：{{$article['click']}} 次</p>
+        <div class="content">
+            {{$article['content']}}
+        </div>
+        <!--上一篇下一篇-->
+        <div class="np">
+            <p class="n">上一篇：<prev aid="houdunwang\request\Request::get('aid')" /></p>
+            <p class="p">下一篇：<next  aid="houdunwang\request\Request::get('aid')"/></p>
+        </div>
+    </div>
+    <!--左侧结束-->
+
+
+    <!--右侧-->
+    <div class="right">
+        <h3>栏目分类</h3>
+        <dl>
+            <dt><a href="">毕业回访</a></dt>
+            <dd><a href="#">毕业同学回访</a></dd>
+            <dd><a href="#">毕业同学回访</a></dd>
+            <dd><a href="#">毕业同学回访</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="">毕业回访</a></dt>
+            <dd><a href="#">毕业同学回访</a></dd>
+            <dd><a href="#">毕业同学回访</a></dd>
+            <dd><a href="#">毕业同学回访</a></dd>
+        </dl>
+    </div>
+    <!--右侧结束-->
+</div>
+<!--大区域结束-->
+</content>
+<!--底部-->
+<div id="footer">
+    <p>北京后盾计算机技术培训有限责任公司</p>
+    <p>京ICP备12048441号-3</p>
+</div>
+<!--底部结束-->
+
+</body>
+</html>
